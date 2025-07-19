@@ -189,4 +189,25 @@ for i = 1, 100 do
     wait(0.1)
 end
 
+-- Connect Execute button to run code typed in the TextBox
+G2L["7"].MouseButton1Click:Connect(function()
+    local code = G2L["6"].Text
+    if code ~= "" then
+        local func, err = loadstring(code)
+        if func then
+            local success, execErr = pcall(func)
+            if not success then
+                warn("Error executing code: ".. tostring(execErr))
+            end
+        else
+            warn("Failed to load code: ".. tostring(err))
+        end
+    end
+end)
+
+-- Connect Clear button to clear the TextBox
+G2L["8"].MouseButton1Click:Connect(function()
+    G2L["6"].Text = ""
+end)
+
 return G2L["1"], require
