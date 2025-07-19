@@ -229,6 +229,4 @@ end
 
 end -- THIS end closes the outer for loop (for i=1,100 do)
 
-return false
-
 return G2L["1"], require;
