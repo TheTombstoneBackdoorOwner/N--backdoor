@@ -10,12 +10,14 @@
 -- Instances: 8 | Scripts: 0 | Modules: 0 | Tags: 0
 local G2L = {};
 
--- Players.ughuhh09.PlayerGui.ScreenGui
-G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+-- StarterGui.Nigga Backdoor
+G2L["1"] = Instance.new("ScreenGui", game:GetService('CoreGui'):WaitForChild('RobloxGui'));
+G2L["1"]["Name"] = [[Nigga Backdoor]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["1"]["ResetOnSpawn"] = false;
 
 
--- Players.ughuhh09.PlayerGui.ScreenGui.Frame
+-- StarterGui.Nigga Backdoor.ScreenGui.Frame
 G2L["2"] = Instance.new("Frame", G2L["1"]);
 G2L["2"]["BorderSizePixel"] = 0;
 G2L["2"]["BackgroundColor3"] = Color3.fromRGB(255, 174, 0);
@@ -23,12 +25,12 @@ G2L["2"]["Size"] = UDim2.new(0.42188, 0, 0.30728, 0);
 G2L["2"]["Position"] = UDim2.new(0.27969, 0, -0.01887, 0);
 
 
--- Players.ughuhh09.PlayerGui.ScreenGui.Frame.UICorner
+-- StarterGui.Nigga Backdoor.SceenGui.Frame.UICorner
 G2L["3"] = Instance.new("UICorner", G2L["2"]);
 G2L["3"]["CornerRadius"] = UDim.new(0.1, 0);
 
 
--- Players.ughuhh09.PlayerGui.ScreenGui.Frame.Nigga backdoor
+-- StarterGui.Nigga Backdoor.ScreenGui.Frame.Nigga backdoor
 G2L["4"] = Instance.new("TextLabel", G2L["2"]);
 G2L["4"]["TextWrapped"] = true;
 G2L["4"]["BorderSizePixel"] = 0;
@@ -40,12 +42,12 @@ G2L["4"]["Text"] = [[Nigga Backdoor]];
 G2L["4"]["Name"] = [[Nigga backdoor]];
 
 
--- Players.ughuhh09.PlayerGui.ScreenGui.Frame.Nigga backdoor.UICorner
+-- StarterGui.Nigga Backdoor.ScreenGui.Frame.Nigga backdoor.UICorner
 G2L["5"] = Instance.new("UICorner", G2L["4"]);
 
 
 
--- Players.ughuhh09.PlayerGui.ScreenGui.Frame.TextBox
+-- StarterGui.Nigga Backdoor.ScreenGui.Frame.TextBox
 G2L["6"] = Instance.new("TextBox", G2L["2"]);
 G2L["6"]["CursorPosition"] = -1;
 G2L["6"]["BorderSizePixel"] = 0;
@@ -56,7 +58,7 @@ G2L["6"]["Position"] = UDim2.new(0.02222, 0, 0.18421, 0);
 G2L["6"]["Text"] = [[]];
 G2L["6"]["Name"] =[[Code]];
 
--- Players.ughuhh09.PlayerGui.ScreenGui.Frame.Execute
+-- StarterGui.Nigga Backdoor.ScreenGui.Frame.Execute
 G2L["7"] = Instance.new("TextButton", G2L["2"]);
 G2L["7"]["Interactable"] = false;
 G2L["7"]["BorderSizePixel"] = 0;
@@ -68,7 +70,7 @@ G2L["7"]["Name"] = [[Execute]];
 G2L["7"]["Position"] = UDim2.new(0.02593, 0, 0.73684, 0);
 
 
--- Players.ughuhh09.PlayerGui.ScreenGui.Frame.Clear
+-- StarterGui.Nigga Backdoor.ScreenGui.Frame.Clear
 G2L["8"] = Instance.new("TextButton", G2L["2"]);
 G2L["8"]["BorderSizePixel"] = 0;
 G2L["8"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 0);
