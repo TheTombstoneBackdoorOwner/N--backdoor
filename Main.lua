@@ -230,7 +230,5 @@ end
 		end
 	
 		return false
-	
-end
 
 return G2L["1"], require;
